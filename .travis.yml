@@ -1,0 +1,31 @@
+os: linux
+dist: bionic
+
+language: node_js
+node_js:
+  - "10"
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - ng lint
+  - replace '%DARK_SKY_API_KEY%' $DARK_SKY_API_KEY ./src/environments/environment.prod.ts
+  - ng build --prod --base-href https://nodm.github.io/the-weather/
+  - cp dist/the-weather/index.html dist/the-weather/404.html
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  token: $GITHUB_TOKEN
+  local_dir: dist/the-weather
+  on:
+    branch: master
