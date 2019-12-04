@@ -1,6 +1,8 @@
 <div class="container" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()">
+    <button mat-icon-button
+            aria-label="Application Menu"
+            (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="app-name">the Weather</h1>
