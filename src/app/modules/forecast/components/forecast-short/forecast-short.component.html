@@ -1,0 +1,14 @@
+<div *ngIf="forecast">
+  <div>{{ forecast.time * 1000 | date: 'EEE' }}</div>
+  <app-weather-icon [name]="forecast?.icon"
+                    [matTooltip]="forecast?.summary"
+                    matTooltipPosition="below"></app-weather-icon>
+  <div>
+    <span>
+      {{ forecast?.temperatureHigh | number: '1.0-0' }}°
+    </span> <span>
+      {{ forecast?.temperatureLow  | number: '1.0-0' }}°
+    </span>
+  </div>
+</div>
+

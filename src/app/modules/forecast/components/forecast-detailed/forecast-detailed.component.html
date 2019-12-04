@@ -1,0 +1,36 @@
+<div *ngIf="forecast" class="current-weather">
+  <div class="current-weather__visual">
+    <div class="current-weather__visual-summary">{{ forecast?.summary }}</div>
+    <div class="current-weather__visual-container">
+      <div class="current-weather__visual-icon">
+        <app-weather-icon [name]="forecast?.icon"></app-weather-icon>
+      </div>
+      <div class="current-weather__visual-temperature">
+        {{ forecast?.temperature | number: '1.0-0'}}°
+      </div>
+    </div>
+  </div>
+  <div class="current-weather__details">
+    <div>
+      <span class="current-weather__details-label">
+        Humidity:
+      </span> {{ forecast?.humidity * 100 | number: '1.0-0'}}%
+    </div>
+    <div>
+      <span class="current-weather__details-label">
+        Wind:
+      </span> {{ forecast?.windSpeed | number: '1.0-0'}} kph {{ forecast?.windBearing }}°
+    </div>
+    <div>
+      <span class="current-weather__details-label">
+        Sunrise:
+      </span> {{ forecast?.sunriseTime * 1000 | date : 'H:mm' }}
+    </div>
+    <div>
+      <span class="current-weather__details-label">
+        Sunset:
+      </span> {{ forecast?.sunsetTime * 1000 | date : 'H:mm' }}
+    </div>
+  </div>
+</div>
+

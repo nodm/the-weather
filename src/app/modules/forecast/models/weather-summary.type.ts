@@ -1,0 +1,12 @@
+export type WeatherSummary = 'clear-day'
+  | 'clear-night'
+  | 'cloudy'
+  | 'fog'
+  | 'partly-cloudy-day'
+  | 'partly-cloudy-night'
+  | 'rain'
+  | 'sleet'
+  | 'snow'
+  | 'thunderstorm'
+  | 'tornado'
+  | 'wind';

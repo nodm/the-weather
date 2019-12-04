@@ -1,0 +1,22 @@
+<mat-card *ngIf="currentForecast" class="forecast-card">
+  <mat-card-header>
+    <mat-card-title>Kyiv</mat-card-title>
+<!--    <mat-card-title>-->
+<!--      <span [appPlaceholder]="30"></span>-->
+<!--    </mat-card-title>-->
+    <mat-card-subtitle>
+      {{ currentForecast.time * 1000 | date : 'EEEE, MMMM d y, H:mm' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <app-forecast-detailed  [forecast]="currentForecast"></app-forecast-detailed>
+    <div class="forecast-card__daily-container">
+      <app-forecast-short *ngFor="let forecast of dailyForecast"
+                          class="forecast-card__daily"
+                          [forecast]="forecast"></app-forecast-short>
+    </div>
+    <div class="forecast-card__powered-by-link">
+      <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+    </div>
+  </mat-card-content>
+</mat-card>

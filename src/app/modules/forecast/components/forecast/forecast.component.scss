@@ -1,0 +1,29 @@
+.forecast-card {
+  margin: 1em;
+  max-width: 640px;
+
+  &__daily-container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 1em;
+  }
+
+  &__daily {
+    flex: 1 1;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__powered-by-link {
+    margin-top: 1em;
+    text-align: right;
+    font-size: .75em;
+  }
+}
+
+.t {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: red;
+  color: red;
+}
