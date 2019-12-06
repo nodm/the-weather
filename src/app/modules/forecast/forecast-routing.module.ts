@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ForecastComponent } from './components/forecast/forecast.component';
+import { ForecastListComponent } from './components/forecast-list/forecast-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ForecastComponent,
+    component: ForecastListComponent,
   },
 ];
 

@@ -1,30 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { DailyForecast } from '../../models/daily-forecast.interface';
-import { CurrentlyForecast } from '../../models/currently-forecast.interface';
-import { Forecast } from '../../models/forecast.interface';
-import { DarkSkyHttpService } from '../../services/dark-sky-http.service';
+import { ForecastCard } from '../../models/forecast-card.interface';
 
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.scss']
+  styleUrls: ['./forecast.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ForecastComponent implements OnInit {
-  public currentForecast: CurrentlyForecast;
-  public dailyForecast: DailyForecast[];
-
-  constructor(private darkSkyHttpService: DarkSkyHttpService) { }
-
-  public ngOnInit(): void {
-    this.darkSkyHttpService.fetchForecast()
-      .subscribe((forecast: Forecast) => {
-        const [ current = {}, ...daily ] = forecast.daily.data;
-        this.currentForecast = {
-          ...current,
-          ...forecast.currently,
-        };
-        this.dailyForecast = daily;
-      });
-  }
+export class ForecastComponent {
+  @Input() forecastCard: ForecastCard;
 }

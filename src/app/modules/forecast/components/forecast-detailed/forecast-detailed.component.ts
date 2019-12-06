@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { CurrentlyForecast } from '../../models/currently-forecast.interface';
+import { DetailedForecast } from '../../models/forecast-card.interface';
 
 @Component({
   selector: 'app-forecast-detailed',
@@ -9,5 +9,5 @@ import { CurrentlyForecast } from '../../models/currently-forecast.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastDetailedComponent {
-  @Input() forecast: CurrentlyForecast;
+  @Input() forecast: DetailedForecast;
 }

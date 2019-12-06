@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { DailyForecast } from '../../models/daily-forecast.interface';
+import { ShortForecast } from '../../models/forecast-card.interface';
 
 @Component({
   selector: 'app-forecast-short',
@@ -8,5 +8,5 @@ import { DailyForecast } from '../../models/daily-forecast.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastShortComponent {
-  @Input() forecast: DailyForecast;
+  @Input() forecast: ShortForecast;
 }

@@ -1,0 +1,5 @@
+<div class="forecast-list">
+  <app-forecast *ngFor="let forecastCard of forecastCardList$ | async"
+                [forecastCard]="forecastCard"
+  ></app-forecast>
+</div>

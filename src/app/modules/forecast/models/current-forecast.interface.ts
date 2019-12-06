@@ -1,6 +1,6 @@
 import { WeatherSummary } from './weather-summary.type';
 
-export interface CurrentlyForecast {
+export interface CurrentForecast {
   // The apparent (or “feels like”) temperature in degrees Fahrenheit.
   apparentTemperature: number;
 
