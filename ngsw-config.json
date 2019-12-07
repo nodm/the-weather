@@ -11,27 +11,32 @@
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "!/*-es5*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/s/**"
         ]
       }
     }, {
-      "name": "weather-icons",
-      "installMode": "lazy",
+      "name": "assets-eager",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/*.svg"
+          "/*-es5*.js",
+          "/assets/icons/*"
         ]
       }
-    },
-    {
-      "name": "assets",
+    }, {
+      "name": "assets-lazy",
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+          "/*.svg",
+          "/assets/images/*"
         ]
       }
     }
@@ -44,7 +49,7 @@
       ],
       "cacheConfig": {
         "maxSize": 10,
-        "maxAge": "30m",
+        "maxAge": "3m",
         "strategy": "freshness"
       }
     }
