@@ -25,5 +25,18 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "dark-sky",
+      "urls": [
+        "https://cors-anywhere.herokuapp.com/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "30m",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
