@@ -43,13 +43,14 @@
   ],
   "dataGroups": [
     {
-      "name": "dark-sky",
+      "name": "dark-sky-api",
       "urls": [
-        "https://cors-anywhere.herokuapp.com/**"
+        "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/**"
       ],
       "cacheConfig": {
-        "maxSize": 10,
-        "maxAge": "3m",
+        "maxSize": 100,
+        "maxAge": "15m",
+        "timeout": "3s",
         "strategy": "freshness"
       }
     }
