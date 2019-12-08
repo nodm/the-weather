@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from '~env/environment';
 import { AppShellModule } from '~modules/app-shell/app-shell.module';
+import { AppUpdateModule } from '~modules/app-update/app-update.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers';
@@ -21,7 +22,6 @@ import { reducers, metaReducers } from './reducers';
     BrowserAnimationsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    AppShellModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -31,6 +31,8 @@ import { reducers, metaReducers } from './reducers';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
+    AppShellModule,
+    AppUpdateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

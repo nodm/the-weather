@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
+import { AppUpdateService } from '~modules/app-update/services/app-update.service';
+
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <app-shell>
+        <router-outlet></router-outlet>
+    </app-shell>
+   `,
 })
 export class AppComponent {
-  title = 'the-weather';
+  constructor(private appUpdateService: AppUpdateService) { }
 }

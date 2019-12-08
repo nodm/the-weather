@@ -9,6 +9,8 @@
 }
 
 .toolbar {
+  overflow: hidden;
+
   & .is-mobile {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
