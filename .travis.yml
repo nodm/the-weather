@@ -18,15 +18,12 @@ install:
 
 script:
   - ng lint
-  - npm version minor
   - PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
-  - replace '%PACKAGE_VERSION%' PACKAGE_VERSION ./src/environments/environment.prod.ts
+  - replace '%PACKAGE_VERSION%' $PACKAGE_VERSION ./src/environments/environment.prod.ts
   - replace '%$TRAVIS_BUILD_NUMBER%' $TRAVIS_BUILD_NUMBER ./src/environments/environment.prod.ts
   - replace '%DARK_SKY_API_KEY%' $DARK_SKY_API_KEY ./src/environments/environment.prod.ts
   - ng build --prod --base-href https://nodm.github.io/the-weather/
   - cp dist/the-weather/index.html dist/the-weather/404.html
-  - git tag $PACKAGE_VERSION
-  - git push --tags
 
 deploy:
   provider: pages
