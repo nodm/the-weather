@@ -19,5 +19,12 @@
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <script>
+    window.appConfig = {
+      version: '%PACKAGE_VERSION%',
+      buildNumber: '%$TRAVIS_BUILD_NUMBER%',
+      darkSkyApiKey: '%DARK_SKY_API_KEY%',
+    };
+  </script>
 </body>
 </html>
