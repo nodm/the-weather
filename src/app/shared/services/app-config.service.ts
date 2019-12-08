@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class AppConfig {
+export class AppConfigService {
   // @ts-ignore
   private readonly config = window.appConfig || {};
 
