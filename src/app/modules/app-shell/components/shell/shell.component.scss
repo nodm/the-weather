@@ -16,8 +16,12 @@
   }
 }
 
-h1.app-name {
+.app-name {
   margin-left: 8px;
+
+  &--version {
+    font-size: .5em;
+  }
 }
 
 .sidenav-container {

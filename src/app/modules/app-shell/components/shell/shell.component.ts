@@ -1,12 +1,16 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
+import { environment } from '~env/environment';
+
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit, OnDestroy {
+  public readonly appName = 'the Weather';
+  public readonly appVersion = `v${environment.version} build ${environment.buildNumber}`;
   public mobileQuery: MediaQueryList;
 
   private mobileQueryListener: () => void;
