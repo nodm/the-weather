@@ -1,4 +1,4 @@
-import { GeoLocation } from './geo-location.interface';
+import { ForecastLocation } from './geo-location.interface';
 
 export interface ShortForecast {
   time: number;
@@ -21,7 +21,7 @@ export interface DetailedForecast {
 }
 
 export interface ForecastCard {
-  geoLocation: GeoLocation;
+  forecastLocation: ForecastLocation;
   currently: DetailedForecast;
   daily: ShortForecast[];
 }

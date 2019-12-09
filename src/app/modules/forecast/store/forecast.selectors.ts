@@ -19,4 +19,5 @@ export const selectForecastList = createSelector(
   selectForecastEntities,
   (forecastList: Dictionary<Forecast>): ForecastCard[] => Object.keys(forecastList)
     .map((id: string) => ForecastUtils.mapForecast2ForecastCard(forecastList[id]))
+    .sort((a: ForecastCard, b: ForecastCard) => (a.forecastLocation.order - b.forecastLocation.order))
 );

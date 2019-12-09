@@ -1,21 +1,21 @@
 import { createAction, props } from '@ngrx/store';
 
 import { Forecast } from '../models/forecast.interface';
-import { GeoLocation } from '../models/geo-location.interface';
+import { ForecastLocation } from '../models/geo-location.interface';
 
 export const loadForecast = createAction(
   '[Forecast] Load forecasts',
-  props<{ geoLocation: GeoLocation | GeoLocation[] }>(),
+  props<{ forecastLocation: ForecastLocation | ForecastLocation[] }>(),
 );
 
 export const fetchForecast = createAction(
   '[Forecast effect] Fetch forecast',
-  props<{ geoLocation: GeoLocation }>()
+  props<{ forecastLocation: ForecastLocation }>()
 );
 
 export const fetchForecastSuccess = createAction(
   '[Forecast effect] Fetch forecast success',
-  props<{ geoLocation: GeoLocation, forecast: Forecast }>()
+  props<{ forecastLocation: ForecastLocation, forecast: Forecast }>()
 );
 
 export const fetchForecastError = createAction(

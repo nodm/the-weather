@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AppConfigService } from '~shared/services/app-config.service';
 import { DARK_SKY_API } from '../constants/dark-sky.constant';
 import { Forecast } from '../models/forecast.interface';
-import { GeoLocation } from '../models/geo-location.interface';
+import { ForecastLocation } from '../models/geo-location.interface';
 
 @Injectable()
 export class DarkSkyHttpService {
@@ -14,7 +14,7 @@ export class DarkSkyHttpService {
     private appConfigService: AppConfigService,
   ) {}
 
-  public fetchForecast(geoLocation: GeoLocation): Observable<Forecast> {
+  public fetchForecast(geoLocation: ForecastLocation): Observable<Forecast> {
     const { latitude, longitude } = geoLocation;
     const coordinates = [latitude, longitude].join(',');
     const url = [DARK_SKY_API, this.appConfigService.darkSkyApiKey, coordinates].join('/');

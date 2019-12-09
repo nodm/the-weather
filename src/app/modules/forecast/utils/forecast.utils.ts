@@ -4,7 +4,7 @@ import { DailyForecast } from '../models/daily-forecast.interface';
 
 export const ForecastUtils = {
   mapForecast2ForecastCard: (forecast: Forecast): ForecastCard => {
-    const geoLocation = forecast.geoLocation;
+    const forecastLocation = forecast.forecastLocation;
 
     const [ current, ...dailyList ] = forecast.daily.data;
 
@@ -28,6 +28,6 @@ export const ForecastUtils = {
       temperatureLow: dailyForecast.temperatureLow,
     }));
 
-    return { geoLocation, currently, daily };
+    return { forecastLocation, currently, daily };
   }
 };

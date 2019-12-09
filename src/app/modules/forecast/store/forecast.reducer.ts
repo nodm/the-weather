@@ -5,8 +5,8 @@ import { initialState, State, adapter } from './forecast.state';
 
 const forecastReducer = createReducer(
   initialState,
-  on(fetchForecastSuccess, (state, { geoLocation, forecast }) => {
-    return adapter.upsertOne({ ...forecast, geoLocation }, state);
+  on(fetchForecastSuccess, (state, { forecastLocation, forecast }) => {
+    return adapter.upsertOne({ ...forecast, forecastLocation }, state);
   }),
 );
 

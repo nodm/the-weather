@@ -1,5 +1,6 @@
-export interface GeoLocation {
-  name?: string;
+export interface ForecastLocation {
+  name: string;
+  order: number;
   latitude: number;
   longitude: number;
 }

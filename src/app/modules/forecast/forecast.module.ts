@@ -14,6 +14,7 @@ import { WeatherIconComponent } from './components/weather-icon/weather-icon.com
 import { FORECAST_STATE_ID } from './constants/forecast.constant';
 import { PlaceholderDirective } from './directives/placeholder.directive';
 import { DarkSkyHttpService } from './services/dark-sky-http.service';
+import { GeoLocationService } from './services/geo-location.service';
 import { reducer, ForecastEffects } from './store';
 import { ForecastListComponent } from './components/forecast-list/forecast-list.component';
 
@@ -37,6 +38,7 @@ import { ForecastListComponent } from './components/forecast-list/forecast-list.
   ],
   providers: [
     DarkSkyHttpService,
+    GeoLocationService,
   ],
 })
 export class ForecastModule { }

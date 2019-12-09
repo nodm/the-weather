@@ -1,10 +1,10 @@
 import { CurrentForecast } from './current-forecast.interface';
 import { DailyForecast } from './daily-forecast.interface';
 import { WeatherSummary } from './weather-summary.type';
-import { GeoLocation } from './geo-location.interface';
+import { ForecastLocation } from './geo-location.interface';
 
 export interface Forecast {
-  geoLocation: GeoLocation;
+  forecastLocation: ForecastLocation;
   currently: CurrentForecast;
   daily: {
     data: DailyForecast[];

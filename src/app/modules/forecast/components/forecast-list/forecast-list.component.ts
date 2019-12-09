@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { State, loadForecast, selectForecastList } from '../../store';
 import { ForecastCard } from '../../models/forecast-card.interface';
-import { LOCATIONS_TEMP } from '../../constants/forecast.constant';
+import { FORECAST_LOCATION_LIST } from '../../constants/forecast.constant';
 
 @Component({
   selector: 'app-forecast-list',
@@ -16,7 +16,11 @@ export class ForecastListComponent implements OnInit {
 
   constructor(private store: Store<State>) { }
 
-  ngOnInit() {
-    this.store.dispatch(loadForecast({ geoLocation: LOCATIONS_TEMP }));
+  public ngOnInit(): void {
+    this.store.dispatch(loadForecast({ forecastLocation: FORECAST_LOCATION_LIST }));
+  }
+
+  public getForecastId(index: number, item: ForecastCard): string {
+    return `${item.forecastLocation.latitude}:${item.forecastLocation.longitude}`;
   }
 }
