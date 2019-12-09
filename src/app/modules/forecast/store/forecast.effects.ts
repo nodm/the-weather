@@ -13,6 +13,8 @@ import {
   fetchForecastSuccess,
   fetchForecastError,
 } from './forecast.actions';
+import { ForecastUtils } from '../utils/forecast.utils';
+import { COORDINATE_PRECISION } from '../constants/forecast.constant';
 
 @Injectable()
 export class ForecastEffects {
@@ -29,8 +31,8 @@ export class ForecastEffects {
         map((position: Position) => ({
           name: 'Current location',
           order: 0,
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
+          latitude: ForecastUtils.round(position.coords.latitude, COORDINATE_PRECISION),
+          longitude: ForecastUtils.round(position.coords.longitude, COORDINATE_PRECISION),
         })),
         catchError(() => of(null)),
       );
