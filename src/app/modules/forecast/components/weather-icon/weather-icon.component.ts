@@ -4,19 +4,15 @@ import { WeatherSummary } from '../../models/weather-summary.type';
 
 @Component({
   selector: 'app-weather-icon',
-  // template: '<div [class]="classes"></div>',
-  template: '<img class="icon" [src]="imageSource" alt="">',
+  template: `<img class="icon" [src]="imageSource" [alt]="summary">`,
   styleUrls: ['./weather-icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WeatherIconComponent {
   @Input() name: WeatherSummary;
+  @Input() summary: string;
 
   public get imageSource(): string {
     return `assets/images/${this.name}.svg`;
-  }
-
-  public get classes(): string {
-    return `icon icon--${this.name}`;
   }
 }

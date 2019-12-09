@@ -1,6 +1,7 @@
 <div *ngIf="forecast">
   <div>{{ forecast.time * 1000 | date: 'EEE' }}</div>
   <app-weather-icon [name]="forecast?.icon"
+                    [summary]="forecast?.summary"
                     [matTooltip]="forecast?.summary"
                     matTooltipPosition="below"></app-weather-icon>
   <div>
@@ -11,4 +12,3 @@
     </span>
   </div>
 </div>
-

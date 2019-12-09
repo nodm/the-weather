@@ -3,7 +3,7 @@
     <div class="current-weather__visual-summary">{{ forecast?.summary }}</div>
     <div class="current-weather__visual-container">
       <div class="current-weather__visual-icon">
-        <app-weather-icon [name]="forecast?.icon"></app-weather-icon>
+        <app-weather-icon [name]="forecast?.icon" [summary]="forecast?.summary"></app-weather-icon>
       </div>
       <div class="current-weather__visual-temperature">
         {{ forecast?.temperature | number: '1.0-0'}}°
