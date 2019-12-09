@@ -10,7 +10,7 @@ import { AppConfigService } from '~shared/services/app-config.service';
 })
 export class ShellComponent implements OnInit, OnDestroy {
   public readonly appName = 'the Weather';
-  public readonly appVersion = this.appConfigService.version;
+  public readonly buildNumber = this.appConfigService.buildNumber;
   public mobileQuery: MediaQueryList;
 
   private mobileQueryListener: () => void;
