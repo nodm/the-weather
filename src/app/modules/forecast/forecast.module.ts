@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -31,6 +32,7 @@ import { ForecastListComponent } from './components/forecast-list/forecast-list.
     CommonModule,
     HttpClientModule,
     MatCardModule,
+    MatSnackBarModule,
     MatTooltipModule,
     StoreModule.forFeature(FORECAST_STATE_ID, reducer ),
     EffectsModule.forFeature([ForecastEffects]),

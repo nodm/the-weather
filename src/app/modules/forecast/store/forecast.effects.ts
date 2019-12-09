@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { merge, Observable, of } from 'rxjs';
-import { map, mergeMap, catchError, switchMap, filter } from 'rxjs/operators';
+import { map, mergeMap, catchError, switchMap, filter, tap } from 'rxjs/operators';
 
 import { Forecast } from '../models/forecast.interface';
 import { ForecastLocation } from '../models/geo-location.interface';
@@ -14,12 +15,13 @@ import {
   fetchForecastError,
 } from './forecast.actions';
 import { ForecastUtils } from '../utils/forecast.utils';
-import { COORDINATE_PRECISION } from '../constants/forecast.constant';
+import { COORDINATE_PRECISION, ERROR_SNACKBAR_DURATION } from '../constants/forecast.constant';
 
 @Injectable()
 export class ForecastEffects {
   constructor(
     private actions$: Actions,
+    private snackBar: MatSnackBar,
     private darkSkyHttpService: DarkSkyHttpService,
     private geoLocationService: GeoLocationService,
   ) {}
@@ -50,7 +52,18 @@ export class ForecastEffects {
     ofType(fetchForecast),
     mergeMap(action => this.darkSkyHttpService.fetchForecast(action.forecastLocation).pipe(
       map((forecast: Forecast) => fetchForecastSuccess({ forecastLocation: action.forecastLocation, forecast })),
-      catchError((error: Error) => of(fetchForecastError({ error }))),
+      catchError((error: Error) => of(fetchForecastError({ forecastLocation: action.forecastLocation, error }))),
     )),
   ));
+
+  public fetchForecastError$ = createEffect(() => this.actions$.pipe(
+    ofType(fetchForecastError),
+    tap((action) => {
+      this.snackBar.open(
+        `Error fetching forecast data for ${action.forecastLocation.name}`,
+        'OK',
+        { duration: ERROR_SNACKBAR_DURATION }
+      );
+    }),
+  ), { dispatch: false });
 }

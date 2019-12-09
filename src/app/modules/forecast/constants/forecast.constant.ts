@@ -15,3 +15,5 @@ export const FORECAST_LOCATION_LIST = [
 ];
 
 export const COORDINATE_PRECISION = 3;
+
+export const ERROR_SNACKBAR_DURATION = 3000;

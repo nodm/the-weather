@@ -20,5 +20,5 @@ export const fetchForecastSuccess = createAction(
 
 export const fetchForecastError = createAction(
   '[Forecast effect] Fetch forecast error',
-  props<{ error: Error }>()
+  props<{ forecastLocation: ForecastLocation, error: Error }>()
 );
