@@ -27,15 +27,7 @@
       "resources": {
         "files": [
           "/*-es5*.js",
-          "/assets/icons/*"
-        ]
-      }
-    }, {
-      "name": "assets-lazy",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
-      "resources": {
-        "files": [
+          "/assets/icons/*",
           "/assets/images/*"
         ]
       }
