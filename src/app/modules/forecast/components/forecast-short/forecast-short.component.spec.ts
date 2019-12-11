@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForecastShortComponent } from './forecast-short.component';
 
-describe('ForecastShortComponent', () => {
+xdescribe('ForecastShortComponent', () => {
   let component: ForecastShortComponent;
   let fixture: ComponentFixture<ForecastShortComponent>;
 

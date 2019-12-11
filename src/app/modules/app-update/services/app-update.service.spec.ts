@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AppUpdateService } from './app-update.service';
 
-describe('AppUpdateService', () => {
+xdescribe('AppUpdateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

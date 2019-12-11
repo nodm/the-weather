@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { CurrentWeatherComponent } from '../current-weather/current-weather.component';
-import { DayForecastComponent } from '../day-forecast/day-forecast.component';
-import { ForecastComponent } from './forecast.component';
+import { ForecastDetailedComponent } from '../forecast-detailed/forecast-detailed.component';
+import { ForecastShortComponent } from '../forecast-short/forecast-short.component';
 import { DarkSkyHttpService } from '../../services/dark-sky-http.service';
+import { ForecastComponent } from './forecast.component';
 
 xdescribe('ForecastComponent', () => {
   let component: ForecastComponent;
@@ -13,9 +13,9 @@ xdescribe('ForecastComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CurrentWeatherComponent,
         HttpClientModule,
-        DayForecastComponent,
+        ForecastDetailedComponent,
+        ForecastShortComponent,
         ForecastComponent,
       ],
       providers: [

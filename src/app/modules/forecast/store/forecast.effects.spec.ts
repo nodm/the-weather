@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ForecastEffects } from './forecast.effects';
 
-describe('ForecastEffects', () => {
+xdescribe('ForecastEffects', () => {
   // tslint:disable-next-line:prefer-const
   let actions$: Observable<any>;
   let effects: ForecastEffects;
