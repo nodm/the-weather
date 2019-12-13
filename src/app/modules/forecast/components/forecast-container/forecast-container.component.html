@@ -1,6 +1,10 @@
 <div class="forecast-container">
-  <div *ngIf="!(forecastCard$ | async)" class="forecast-placeholder">
-    <img src="assets/images/partly-cloudy-day.svg" alt="the Weather" width="50%">
-  </div>
-  <app-forecast [forecastCard]="forecastCard$ | async"></app-forecast>
+  <ng-container *ngIf="(forecastCard$ | async) as forecastCard; else placeholder">
+    <app-forecast [forecastCard]="forecastCard"></app-forecast>
+  </ng-container>
+  <ng-template #placeholder>
+    <div class="forecast-placeholder">
+      <img src="assets/images/partly-cloudy-day.svg" alt="the Weather" width="50%">
+    </div>
+  </ng-template>
 </div>
