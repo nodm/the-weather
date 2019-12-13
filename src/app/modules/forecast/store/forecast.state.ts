@@ -5,7 +5,7 @@ import { Forecast } from '../models/forecast.interface';
 export interface State extends EntityState<Forecast> {}
 
 export const adapter: EntityAdapter<Forecast> = createEntityAdapter<Forecast>({
-  selectId: (forecast: Forecast): string => `${forecast.latitude},${forecast.longitude}`,
+  selectId: (forecast) => forecast.forecastLocation.id,
 });
 
 export const initialState: State = adapter.getInitialState();

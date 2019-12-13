@@ -9,15 +9,14 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { ForecastRoutingModule } from './forecast-routing.module';
 import { ForecastComponent } from './components/forecast/forecast.component';
+import { ForecastContainerComponent } from './components/forecast-container/forecast-container.component';
 import { ForecastDetailedComponent } from './components/forecast-detailed/forecast-detailed.component';
 import { ForecastShortComponent } from './components/forecast-short/forecast-short.component';
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { FORECAST_STATE_ID } from './constants/forecast.constant';
-import { PlaceholderDirective } from './directives/placeholder.directive';
 import { DarkSkyHttpService } from './services/dark-sky-http.service';
 import { GeoLocationService } from './services/geo-location.service';
 import { reducer, ForecastEffects } from './store';
-import { ForecastListComponent } from './components/forecast-list/forecast-list.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { ForecastListComponent } from './components/forecast-list/forecast-list.
     ForecastDetailedComponent,
     ForecastShortComponent,
     WeatherIconComponent,
-    PlaceholderDirective,
-    ForecastListComponent,
+    ForecastContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +32,7 @@ import { ForecastListComponent } from './components/forecast-list/forecast-list.
     MatCardModule,
     MatSnackBarModule,
     MatTooltipModule,
-    StoreModule.forFeature(FORECAST_STATE_ID, reducer ),
+    StoreModule.forFeature(FORECAST_STATE_ID, reducer),
     EffectsModule.forFeature([ForecastEffects]),
     ForecastRoutingModule,
   ],

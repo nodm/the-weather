@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForecastListComponent } from './forecast-list.component';
+import { ForecastContainerComponent } from './forecast-container.component';
 
-xdescribe('ForecastListComponent', () => {
-  let component: ForecastListComponent;
-  let fixture: ComponentFixture<ForecastListComponent>;
+describe('ForecastContainerComponent', () => {
+  let component: ForecastContainerComponent;
+  let fixture: ComponentFixture<ForecastContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForecastListComponent ]
+      declarations: [ ForecastContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ForecastListComponent);
+    fixture = TestBed.createComponent(ForecastContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

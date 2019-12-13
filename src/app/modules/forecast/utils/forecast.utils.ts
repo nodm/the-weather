@@ -30,9 +30,4 @@ export const ForecastUtils = {
 
     return { forecastLocation, currently, daily };
   },
-
-  round: (value: number, precision: number): number => {
-    const n = Math.pow(10, precision);
-    return Math.round(value * n) / n;
-  }
 };

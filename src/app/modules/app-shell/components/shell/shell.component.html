@@ -13,10 +13,17 @@
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav
                  mode="over"
+                 opened
                  [fixedInViewport]="mobileQuery.matches"
                  fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="/">Forecast</a>
+        <a *ngFor="let forecastLocation of forecastLocationList$ | async"
+           mat-list-item
+           routerLink="/"
+           [queryParams]="{ longitude: forecastLocation.longitude, latitude: forecastLocation.latitude }"
+           (click)="sidenav.close()">
+          {{ forecastLocation.name }}
+        </a>
       </mat-nav-list>
     </mat-sidenav>
 

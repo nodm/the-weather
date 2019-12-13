@@ -1,8 +1,9 @@
-import { ForecastLocation } from './geo-location.interface';
+import { ForecastLocation } from '~shared/models/forecast-location.interface';
+import { WeatherSummary } from './weather-summary.type';
 
 export interface ShortForecast {
   time: number;
-  icon: string;
+  icon: WeatherSummary;
   summary: string;
   temperatureHigh: number;
   temperatureLow: number;
@@ -11,7 +12,7 @@ export interface ShortForecast {
 export interface DetailedForecast {
   time: number;
   summary: string;
-  icon: string;
+  icon: WeatherSummary;
   temperature: number;
   humidity: number;
   windSpeed: number;

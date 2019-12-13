@@ -1,51 +1,42 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { merge, Observable, of } from 'rxjs';
-import { map, mergeMap, catchError, switchMap, filter, tap } from 'rxjs/operators';
+import { combineLatest, of } from 'rxjs';
+import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 
+import { selectForecastLocationEntities } from '~modules/app-shell';
+import { LocationUtils } from '~shared/utils/location.utils';
+import { ERROR_SNACKBAR_DURATION } from '../constants/forecast.constant';
 import { Forecast } from '../models/forecast.interface';
-import { ForecastLocation } from '../models/geo-location.interface';
 import { DarkSkyHttpService } from '../services/dark-sky-http.service';
-import { GeoLocationService } from '../services/geo-location.service';
 import {
-  loadForecast,
   fetchForecast,
   fetchForecastSuccess,
   fetchForecastError,
 } from './forecast.actions';
-import { ForecastUtils } from '../utils/forecast.utils';
-import { COORDINATE_PRECISION, ERROR_SNACKBAR_DURATION } from '../constants/forecast.constant';
+import { State } from './forecast.state';
 
 @Injectable()
 export class ForecastEffects {
   constructor(
+    private activatedRoute: ActivatedRoute,
+    private store: Store<State>,
     private actions$: Actions,
     private snackBar: MatSnackBar,
     private darkSkyHttpService: DarkSkyHttpService,
-    private geoLocationService: GeoLocationService,
   ) {}
 
-  public loadForecast$ = createEffect(() => this.actions$.pipe(
-    ofType(loadForecast),
-    switchMap((action) => {
-      const currentLocation$: Observable<ForecastLocation> = this.geoLocationService.getCurrentPosition().pipe(
-        map((position: Position) => ({
-          name: 'Current location',
-          order: 0,
-          latitude: ForecastUtils.round(position.coords.latitude, COORDINATE_PRECISION),
-          longitude: ForecastUtils.round(position.coords.longitude, COORDINATE_PRECISION),
-        })),
-        catchError(() => of(null)),
-      );
+  public loadForecast$ = createEffect(() =>  combineLatest(
+    this.store.select(selectForecastLocationEntities),
+    this.activatedRoute.queryParams.pipe(map(LocationUtils.getId)),
+  ).pipe(
+    map(([forecastLocationEntities, locationId]) => {
+      const forecastLocation = forecastLocationEntities[locationId];
 
-      const geoLocationList = Array.isArray(action.forecastLocation) ? action.forecastLocation : [action.forecastLocation];
-
-      return merge(of(...geoLocationList), currentLocation$).pipe(
-        filter(Boolean),
-        map((geoLocation: ForecastLocation) => fetchForecast({ forecastLocation: geoLocation }))
-      );
-    }),
+      return fetchForecast({ forecastLocation });
+    })
   ));
 
   public fetchForecast$ = createEffect(() => this.actions$.pipe(

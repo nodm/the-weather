@@ -1,7 +1,7 @@
+import { ForecastLocation } from '~shared/models/forecast-location.interface';
 import { CurrentForecast } from './current-forecast.interface';
 import { DailyForecast } from './daily-forecast.interface';
 import { WeatherSummary } from './weather-summary.type';
-import { ForecastLocation } from './geo-location.interface';
 
 export interface Forecast {
   forecastLocation: ForecastLocation;

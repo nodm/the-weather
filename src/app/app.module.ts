@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from '~env/environment';
-import { AppShellModule } from '~modules/app-shell/app-shell.module';
+import { AppShellModule } from '~modules/app-shell';
 import { AppUpdateModule } from '~modules/app-update/app-update.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

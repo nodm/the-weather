@@ -1,9 +1,6 @@
-<mat-card class="forecast-card">
+<mat-card *ngIf="forecastCard" class="forecast-card">
   <mat-card-header>
     <mat-card-title>{{ forecastCard?.forecastLocation?.name }}</mat-card-title>
-<!--    <mat-card-title>-->
-<!--      <span [appPlaceholder]="30"></span>-->
-<!--    </mat-card-title>-->
     <mat-card-subtitle>
       {{ forecastCard?.currently?.time * 1000 | date : 'EEEE, MMMM d y, H:mm' }}
     </mat-card-subtitle>
