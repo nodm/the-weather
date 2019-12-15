@@ -3,6 +3,11 @@ import { createAction, props } from '@ngrx/store';
 import { ForecastLocation } from '~shared/models/forecast-location.interface';
 import { Forecast } from '../models/forecast.interface';
 
+export const loadForecast = createAction(
+  '[Forecast effect] Load forecast',
+  props<{ locationId: string }>()
+);
+
 export const fetchForecast = createAction(
   '[Forecast effect] Fetch forecast',
   props<{ forecastLocation: ForecastLocation }>()

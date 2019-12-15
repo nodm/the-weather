@@ -1,7 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Dictionary } from '@ngrx/entity';
 
-import { LocationUtils } from '~shared/utils/location.utils';
 import { FORECAST_STATE_ID } from '../constants/forecast.constant';
 import { Forecast } from '../models/forecast.interface';
 import { ForecastCard } from '../models/forecast-card.interface';
@@ -25,9 +24,8 @@ export const selectForecastList = createSelector(
 
 export const selectForecast = createSelector(
   selectForecastEntities,
-  (forecastList: Dictionary<Forecast>, props: { latitude, longitude }) => {
-    const forecastId = LocationUtils.getId(props);
-    const forecast = forecastList[forecastId];
+  (forecastList: Dictionary<Forecast>, props: { id }) => {
+    const forecast = forecastList[props.id];
     return forecast ? ForecastUtils.mapForecast2ForecastCard(forecast) : null;
   }
 );

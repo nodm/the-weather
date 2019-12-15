@@ -6,7 +6,12 @@ import { ForecastContainerComponent } from './components/forecast-container/fore
 const routes: Routes = [
   {
     path: '',
-    component: ForecastContainerComponent,
+    children: [
+      {
+        path: ':id',
+        component: ForecastContainerComponent,
+      },
+    ],
   },
 ];
 

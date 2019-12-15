@@ -16,11 +16,15 @@
                  opened
                  [fixedInViewport]="mobileQuery.matches"
                  fixedTopGap="56">
-      <mat-nav-list>
+      <mat-nav-list class="navigation-menu">
+        <a mat-list-item routerLink="/"
+           (click)="sidenav.close()">
+          Home
+        </a>
+        <mat-divider></mat-divider>
         <a *ngFor="let forecastLocation of forecastLocationList$ | async"
            mat-list-item
-           routerLink="/"
-           [queryParams]="{ longitude: forecastLocation.longitude, latitude: forecastLocation.latitude }"
+           [routerLink]="['/forecast/', forecastLocation.id]"
            (click)="sidenav.close()">
           {{ forecastLocation.name }}
         </a>

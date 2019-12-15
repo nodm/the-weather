@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 import { ForecastCard } from '../../models/forecast-card.interface';
-import { State, selectForecast } from '../../store';
+import { State, selectForecast, loadForecast } from '../../store';
 
 @Component({
   selector: 'app-forecast-container',
@@ -13,8 +13,9 @@ import { State, selectForecast } from '../../store';
   styleUrls: ['./forecast-container.component.scss']
 })
 export class ForecastContainerComponent {
-  public forecastCard$: Observable<ForecastCard> = this.activatedRoute.queryParams.pipe(
-    switchMap(({ latitude, longitude }) => this.store.select(selectForecast, { latitude, longitude })),
+  public forecastCard$: Observable<ForecastCard> = this.activatedRoute.params.pipe(
+    tap(({ id }) => this.store.dispatch(loadForecast({ locationId: id }))),
+    switchMap(({ id }) => this.store.select(selectForecast, { id })),
   );
 
   constructor(

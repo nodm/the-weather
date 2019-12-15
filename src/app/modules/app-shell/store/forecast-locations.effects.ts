@@ -8,7 +8,6 @@ import { LocationUtils } from '~shared/utils/location.utils';
 import { initForecastLocation, addForecastLocations, addForecastLocation } from './forecast-locations.actions';
 import { FORECAST_LOCATION_LIST, COORDINATE_PRECISION, CURRENT_LOCATION_NAME } from '../constants/forecast-locations.constant';
 import { GeoLocationService } from '../services/geo-location.service';
-import { ForecastLocationUtils } from '../utils/forecast-location.utils';
 
 @Injectable()
 export class ForecastLocationsEffects {
@@ -23,8 +22,8 @@ export class ForecastLocationsEffects {
     switchMap(() => {
       const addCurrentLocation$ = this.geoLocationService.getCurrentPosition().pipe(
         map((position: Position) => {
-          const latitude = ForecastLocationUtils.round(position.coords.latitude, COORDINATE_PRECISION);
-          const longitude = ForecastLocationUtils.round(position.coords.longitude, COORDINATE_PRECISION);
+          const latitude = LocationUtils.round(position.coords.latitude, COORDINATE_PRECISION);
+          const longitude = LocationUtils.round(position.coords.longitude, COORDINATE_PRECISION);
           const id = LocationUtils.getId({ latitude, longitude });
 
           const forecastLocation = {

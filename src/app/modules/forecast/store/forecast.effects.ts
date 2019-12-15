@@ -3,15 +3,15 @@ import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { combineLatest, of } from 'rxjs';
-import { map, mergeMap, catchError, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, mergeMap, catchError, tap, switchMap } from 'rxjs/operators';
 
 import { selectForecastLocationEntities } from '~modules/app-shell';
-import { LocationUtils } from '~shared/utils/location.utils';
 import { ERROR_SNACKBAR_DURATION } from '../constants/forecast.constant';
 import { Forecast } from '../models/forecast.interface';
 import { DarkSkyHttpService } from '../services/dark-sky-http.service';
 import {
+  loadForecast,
   fetchForecast,
   fetchForecastSuccess,
   fetchForecastError,
@@ -28,15 +28,14 @@ export class ForecastEffects {
     private darkSkyHttpService: DarkSkyHttpService,
   ) {}
 
-  public loadForecast$ = createEffect(() =>  combineLatest(
-    this.store.select(selectForecastLocationEntities),
-    this.activatedRoute.queryParams.pipe(map(LocationUtils.getId)),
-  ).pipe(
-    map(([forecastLocationEntities, locationId]) => {
-      const forecastLocation = forecastLocationEntities[locationId];
-
-      return fetchForecast({ forecastLocation });
-    })
+  public loadForecast$ = createEffect(() => this.actions$.pipe(
+    ofType(loadForecast),
+    switchMap((action) => this.store.select(selectForecastLocationEntities).pipe(
+      map((forecastLocationEntities) => {
+        const forecastLocation = forecastLocationEntities[action.locationId];
+        return fetchForecast({ forecastLocation });
+      })
+    ))
   ));
 
   public fetchForecast$ = createEffect(() => this.actions$.pipe(
