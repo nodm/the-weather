@@ -14,5 +14,8 @@ export class AppConfigService {
   public get darkSkyApiKey(): string {
     return this.config.darkSkyApiKey === '%DARK_SKY_API_KEY%' ? '<YOUR_DARK_SKY_API_KEY>' : this.config.darkSkyApiKey;
   }
-}
 
+  public get vapidPublicKey(): string {
+    return this.config.vapidPublicKey === '%VAPID_PUBLIC_KEY%' ? '<YOUR_VAPID_PUBLIC_KEY>' : this.config.vapidPublicKey;
+  }
+}

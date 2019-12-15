@@ -28,9 +28,13 @@
            (click)="sidenav.close()">
           {{ forecastLocation.name }}
         </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/notification-management"
+           (click)="sidenav.close()">
+          Notification management
+        </a>
       </mat-nav-list>
     </mat-sidenav>
-
     <mat-sidenav-content>
       <ng-content></ng-content>
     </mat-sidenav-content>

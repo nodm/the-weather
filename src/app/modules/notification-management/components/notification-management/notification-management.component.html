@@ -1,0 +1,18 @@
+<mat-card *ngIf="isNotificationsEnabled" class="message-card">
+  <mat-card-header>
+    <mat-card-title>Push Notification Message</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="notificationForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field class="message-card__input">
+        <input formControlName="message"
+               matInput
+               type="text"
+               placeholder="Message">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="submit">SEND</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
