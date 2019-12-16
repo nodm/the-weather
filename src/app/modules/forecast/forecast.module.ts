@@ -12,6 +12,7 @@ import { ForecastComponent } from './components/forecast/forecast.component';
 import { ForecastContainerComponent } from './components/forecast-container/forecast-container.component';
 import { ForecastDetailedComponent } from './components/forecast-detailed/forecast-detailed.component';
 import { ForecastShortComponent } from './components/forecast-short/forecast-short.component';
+import { ForecastPlaceholderComponent } from './components/forecast-placeholder/forecast-placeholder.component';
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { FORECAST_STATE_ID } from './constants/forecast.constant';
 import { DarkSkyHttpService } from './services/dark-sky-http.service';
@@ -20,11 +21,12 @@ import { reducer, ForecastEffects } from './store';
 
 @NgModule({
   declarations: [
+    ForecastContainerComponent,
     ForecastComponent,
     ForecastDetailedComponent,
     ForecastShortComponent,
+    ForecastPlaceholderComponent,
     WeatherIconComponent,
-    ForecastContainerComponent,
   ],
   imports: [
     CommonModule,
