@@ -63,9 +63,9 @@ To test Web Push Notifications you should run a [server](https://github.com/nodm
 Clone the repo, copy `src/app-config.json.dist` to `src/app-config.json` and replace:
 * `port` with `80`,
 * `< Your VAPID public key>` with a VAPID public key, generated in [Prerequisites](#prerequisites) section,
-* `< Your VAPID private key >`  with a VAPID private key, generated in [Prerequisites](#prerequisites) section,`
+* `< Your VAPID private key >`  with a VAPID private key, generated in [Prerequisites](#prerequisites) section,
 * `< Your email >` with your email address,
-* `< You DarkSky API key >` with a VAPID private key, generated in [Prerequisites](#prerequisites) section,`
+* `< You DarkSky API key >` with a VAPID private key, generated in [Prerequisites](#prerequisites) section,
 
 Run the server with a command:
 ```shell script
