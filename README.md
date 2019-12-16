@@ -13,7 +13,7 @@ You can get the application with the [link](https://nodm.github.io/the-weather).
 
 ## Development
 
-### [Prerequisites]
+### Prerequisites
 * register on [Dark Sky](https://darksky.net/dev) website to get a secret API key (trial account allows up to 1,000 free calls per day to evaluate the Dark Sky API)
 * generate a VAPID (VAPID stands for **V**oluntary **A**pplication **S**erver **I**dentification for Web Push protocol) key pair:
 ```shell script
