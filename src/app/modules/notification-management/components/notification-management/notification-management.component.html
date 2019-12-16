@@ -16,3 +16,7 @@
     </mat-card-actions>
   </form>
 </mat-card>
+
+<div *ngIf="!isNotificationsEnabled" class="messaging-unavailable">
+  Sorry, but push notification messaging is not available.
+</div>
