@@ -22,6 +22,11 @@ script:
   - replace '%TRAVIS_BUILD_NUMBER%' $TRAVIS_BUILD_NUMBER dist/the-weather/index.html
   - replace '%DARK_SKY_API_KEY%' $DARK_SKY_API_KEY dist/the-weather/index.html
   - replace '%VAPID_PUBLIC_KEY%' $VAPID_PUBLIC_KEY dist/the-weather/index.html
+
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token: $FIREBASE_TOKEN
 #  - cp dist/the-weather/index.html dist/the-weather/404.html
 
 #deploy:
@@ -31,7 +36,3 @@ script:
 #  local_dir: dist/the-weather
 #  on:
 #    branch: master
-
-deploy:
-  provider: firebase
-  token: $FIREBASE_TOKEN
