@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "0.0.40",
-    "whatsNew": "Fix app scope"
+    "version": "0.0.41",
+    "whatsNew": "Firebase hosting"
   },
   "assetGroups": [
     {

@@ -7,7 +7,7 @@ This project is a [Progressive Web Application](https://en.wikipedia.org/wiki/Pr
 
 You can check the weather forecast for your current location or for a set of predefined locations, including Kyiv and some cities in Scandinavia.
 
-You can get the application with the [link](https://nodm.github.io/the-weather). You can install and place it on a home screen on Android, iOS, MacOS, Linux and Windows.  
+You can get the application with the [link](https://the-weather-8210d.firebaseapp.com/). You can install and place it on a home screen on Android, iOS, MacOS, Linux and Windows.  
 
 **theWeather** app checks for updates, notifies user and asks for installation. So you could always use the latest version.
 
