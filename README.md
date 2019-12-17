@@ -104,6 +104,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 15. [Web PUSH Notifications быстро и просто](https://habr.com/ru/post/321924/)
 16. [Beginners guide to Web Push Notifications using Service Workers](https://medium.com/izettle-engineering/beginners-guide-to-web-push-notifications-using-service-workers-cb3474a17679)
 17. [Web Push Book](https://web-push-book.gauntface.com/)
-18. [Convert any site to an App – Progressive Web App](https://dev.to/tomavelev/convert-any-site-to-an-app-progressive-web-app-4e3d) (intercept installation prompt)
-19. [Advanced angular 7 PWA tutorial ( Part -1)](https://www.youtube.com/watch?v=f26hgzyGdHM)
-20. [Angular Service Worker Tutorial](https://www.youtube.com/watch?v=5YtNQJQu31Y)
+18. [Add to Home Screen](https://developers.google.com/web/fundamentals/app-install-banners) by Pete LePage
+19. [Patterns for Promoting PWA Installation (mobile)](https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile) by Peter Mclachlan
+20. [Advanced angular 7 PWA tutorial ( Part -1)](https://www.youtube.com/watch?v=f26hgzyGdHM)
+21. [Angular Service Worker Tutorial](https://www.youtube.com/watch?v=5YtNQJQu31Y)
