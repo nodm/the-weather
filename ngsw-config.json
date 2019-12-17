@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "0.0.4",
-    "whatsNew": "App improvements."
+    "version": "0.0.40",
+    "whatsNew": "Fix app scope"
   },
   "assetGroups": [
     {
@@ -45,8 +45,8 @@
       ],
       "cacheConfig": {
         "maxSize": 100,
-        "maxAge": "12h",
-        "timeout": "10m",
+        "maxAge": "15m",
+        "timeout": "5s",
         "strategy": "performance"
       }
     }
