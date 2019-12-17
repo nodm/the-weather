@@ -24,10 +24,14 @@ script:
   - replace '%VAPID_PUBLIC_KEY%' $VAPID_PUBLIC_KEY dist/the-weather/index.html
   - cp dist/the-weather/index.html dist/the-weather/404.html
 
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  token: $GITHUB_TOKEN
+#  local_dir: dist/the-weather
+#  on:
+#    branch: master
+
 deploy:
-  provider: pages
-  skip_cleanup: true
-  token: $GITHUB_TOKEN
-  local_dir: dist/the-weather
-  on:
-    branch: master
+  provider: firebase
+  token: $FIREBASE_TOKEN
