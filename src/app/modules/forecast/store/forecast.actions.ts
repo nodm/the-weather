@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
-import { ForecastLocation } from '~shared/models/forecast-location.interface';
-import { Forecast } from '../models/forecast.interface';
+import { ForecastLocation } from '~shared/models';
+import { Forecast } from '../models';
 
 export const loadForecast = createAction(
   '[Forecast effect] Load forecast',
@@ -22,3 +22,5 @@ export const fetchForecastError = createAction(
   '[Forecast effect] Fetch forecast error',
   props<{ forecastLocation: ForecastLocation, error: Error }>()
 );
+
+export const cleanForecastState = createAction('[Forecast] Clean forecast state');

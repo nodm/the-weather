@@ -1,25 +1,16 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ForecastCard } from '../../models/forecast-card.interface';
-import { State, selectForecast, loadForecast } from '../../store';
+import { ForecastFacade } from '../../facades/forecast-facade';
 
 @Component({
   selector: 'app-forecast-container',
   templateUrl: './forecast-container.component.html',
-  styleUrls: ['./forecast-container.component.scss']
+  styleUrls: ['./forecast-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastContainerComponent {
-  public forecastCard$: Observable<ForecastCard> = this.activatedRoute.params.pipe(
-    tap(({ id }) => this.store.dispatch(loadForecast({ locationId: id }))),
-    switchMap(({ id }) => this.store.select(selectForecast, { id })),
-  );
+  public forecastCard$ = this.forecastFacade.forecastCard$;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private store: Store<State>,
-  ) { }
+  constructor(private forecastFacade: ForecastFacade) {
+  }
 }

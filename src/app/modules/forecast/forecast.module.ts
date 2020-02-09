@@ -8,15 +8,17 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { ForecastRoutingModule } from './forecast-routing.module';
-import { ForecastComponent } from './components/forecast/forecast.component';
-import { ForecastContainerComponent } from './components/forecast-container/forecast-container.component';
-import { ForecastDetailedComponent } from './components/forecast-detailed/forecast-detailed.component';
-import { ForecastShortComponent } from './components/forecast-short/forecast-short.component';
-import { ForecastPlaceholderComponent } from './components/forecast-placeholder/forecast-placeholder.component';
-import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
-import { FORECAST_STATE_ID } from './constants/forecast.constant';
-import { DarkSkyHttpService } from './services/dark-sky-http.service';
-import { GeoLocationService } from './services/geo-location.service';
+import {
+  ForecastComponent,
+  ForecastContainerComponent,
+  ForecastDetailedComponent,
+  ForecastPlaceholderComponent,
+  ForecastShortComponent,
+  WeatherIconComponent,
+} from './components';
+import { FORECAST_STATE_ID } from './constants';
+import { ForecastFacade } from './facades/forecast-facade';
+import { DarkSkyHttpService, GeoLocationService } from './services';
 import { reducer, ForecastEffects } from './store';
 
 @NgModule({
@@ -39,6 +41,7 @@ import { reducer, ForecastEffects } from './store';
     ForecastRoutingModule,
   ],
   providers: [
+    ForecastFacade,
     DarkSkyHttpService,
     GeoLocationService,
   ],

@@ -1,31 +1,20 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Dictionary } from '@ngrx/entity';
 
-import { FORECAST_STATE_ID } from '../constants/forecast.constant';
-import { Forecast } from '../models/forecast.interface';
-import { ForecastCard } from '../models/forecast-card.interface';
+import { FORECAST_STATE_ID } from '../constants';
+import { ForecastCard } from '../models';
+import { State } from './forecast.state';
 import { ForecastUtils } from '../utils/forecast.utils';
-import { State, adapter } from './forecast.state';
 
 const selectForecastState = createFeatureSelector<State>(FORECAST_STATE_ID);
 
-const { selectEntities } = adapter.getSelectors();
-const selectForecastEntities = createSelector(
+const selectForecastPayload = createSelector(
   selectForecastState,
-  selectEntities,
-);
-
-export const selectForecastList = createSelector(
-  selectForecastEntities,
-  (forecastList: Dictionary<Forecast>): ForecastCard[] => Object.keys(forecastList)
-    .map((id: string) => ForecastUtils.mapForecast2ForecastCard(forecastList[id]))
-    .sort((a: ForecastCard, b: ForecastCard) => (a.forecastLocation.order - b.forecastLocation.order))
+  (state: State) => state.payload,
 );
 
 export const selectForecast = createSelector(
-  selectForecastEntities,
-  (forecastList: Dictionary<Forecast>, props: { id }) => {
-    const forecast = forecastList[props.id];
-    return forecast ? ForecastUtils.mapForecast2ForecastCard(forecast) : null;
+  selectForecastPayload,
+  (payload): ForecastCard => {
+    return payload ? ForecastUtils.mapForecast2ForecastCard(payload.forecast) : null;
   }
 );

@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ForecastContainerComponent } from './components/forecast-container/forecast-container.component';
+import { ForecastContainerComponent } from './components';
+import { ForecastGuard } from './guards/forecast.guard';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       {
-        path: ':id',
+        path: ':locationId',
         component: ForecastContainerComponent,
+        canActivate: [ForecastGuard],
       },
     ],
   },
@@ -17,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ForecastGuard],
 })
 export class ForecastRoutingModule { }

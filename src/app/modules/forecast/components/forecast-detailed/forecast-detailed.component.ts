@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { DetailedForecast } from '../../models/forecast-card.interface';
+import { DetailedForecast } from '../../models';
 
 @Component({
   selector: 'app-forecast-detailed',

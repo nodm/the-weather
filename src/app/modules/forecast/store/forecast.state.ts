@@ -1,11 +1,13 @@
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { ForecastLocation } from '~shared/models';
+import { Forecast } from '../models';
 
-import { Forecast } from '../models/forecast.interface';
+export interface State {
+  payload: {
+    forecastLocation: ForecastLocation,
+    forecast: Forecast,
+  };
+}
 
-export interface State extends EntityState<Forecast> {}
-
-export const adapter: EntityAdapter<Forecast> = createEntityAdapter<Forecast>({
-  selectId: (forecast) => forecast.forecastLocation.id,
-});
-
-export const initialState: State = adapter.getInitialState();
+export const initialState: State = {
+  payload: null,
+};

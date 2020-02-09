@@ -3,9 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { AppConfigService } from '~shared/services/app-config.service';
-import { ForecastLocation } from '~shared/models/forecast-location.interface';
-import { DARK_SKY_API } from '../constants/dark-sky.constant';
-import { Forecast } from '../models/forecast.interface';
+import { ForecastLocation } from '~shared/models';
+import { DARK_SKY_API } from '../constants';
+import { Forecast } from '../models';
 
 @Injectable()
 export class DarkSkyHttpService {

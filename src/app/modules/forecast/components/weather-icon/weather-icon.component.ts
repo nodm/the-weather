@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { WeatherSummary } from '../../models/weather-summary.type';
+import { WeatherSummary } from '../../models';
 
 @Component({
   selector: 'app-weather-icon',

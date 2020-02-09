@@ -7,9 +7,9 @@ import { of } from 'rxjs';
 import { map, mergeMap, catchError, tap, switchMap } from 'rxjs/operators';
 
 import { selectForecastLocationEntities } from '~modules/app-shell';
-import { ERROR_SNACKBAR_DURATION } from '../constants/forecast.constant';
-import { Forecast } from '../models/forecast.interface';
-import { DarkSkyHttpService } from '../services/dark-sky-http.service';
+import { ERROR_SNACKBAR_DURATION } from '../constants';
+import { Forecast } from '../models';
+import { DarkSkyHttpService } from '../services';
 import {
   loadForecast,
   fetchForecast,

@@ -1,5 +1,5 @@
 <div class="forecast-container">
-  <ng-container *ngIf="(forecastCard$ | async) as forecastCard; else placeholder">
+  <ng-container *ngIf="forecastCard$ | async as forecastCard; else placeholder">
     <app-forecast [forecastCard]="forecastCard"></app-forecast>
   </ng-container>
   <ng-template #placeholder>
