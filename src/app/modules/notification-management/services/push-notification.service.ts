@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { SwPush } from '@angular/service-worker';
 
 import { AppConfigService } from '~shared/services/app-config.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class PushNotificationService {
